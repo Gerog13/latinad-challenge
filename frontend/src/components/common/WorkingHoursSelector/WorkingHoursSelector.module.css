@@ -1,0 +1,150 @@
+.container {
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #fafafa;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.headerIcon {
+    margin-right: 8px;
+    color: #1976d2;
+}
+
+.title {
+    font-weight: 600;
+    color: #1976d2;
+    font-size: 0.9rem;
+}
+
+.subtitle {
+    margin-bottom: 8px;
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+.divider {
+    margin-bottom: 8px;
+}
+
+.daysContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dayCard {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+}
+
+.dayCardContent {
+    padding: 6px !important;
+}
+
+.dayHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.dayLabel {
+    font-weight: 600;
+    color: #424242;
+}
+
+.expandButton {
+    padding: 4px;
+}
+
+.rangesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.timeChip {
+    font-size: 0.75rem;
+}
+
+.addRangeContainer {
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.timeInputsContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.timeInput {
+    flex: 1;
+    max-width: 120px;
+}
+
+.timeSeparator {
+    color: #666;
+    font-style: italic;
+}
+
+.timeError {
+    margin-bottom: 8px;
+    font-size: 0.75rem;
+}
+
+.addButton {
+    font-size: 0.75rem;
+    text-transform: none;
+}
+
+.errorText {
+    margin-top: 8px;
+    font-size: 0.75rem;
+}
+
+/* Scrollbar personalizada */
+.container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .timeInputsContainer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .timeInput {
+        max-width: none;
+    }
+    
+    .timeSeparator {
+        text-align: center;
+    }
+}
