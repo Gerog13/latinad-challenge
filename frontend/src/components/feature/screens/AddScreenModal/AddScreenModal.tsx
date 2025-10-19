@@ -9,6 +9,8 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { useAddScreenForm } from "@hooks/useAddScreenForm";
 import { Screen } from "types/screen";
 import { FormEvent } from "react";
+import WorkingHoursSelector from "@components/common/WorkingHoursSelector/WorkingHoursSelector";
+import { jsonStringToWorkingHours, workingHoursToJsonString } from "@lib/utils.workingHours";
 
 
 type Props = {
@@ -20,7 +22,7 @@ type Props = {
 
 const AddScreen = ({open, handleClose, action, initialValues}:Props) => {
     //Extraemos los datos del hook personalzdo
-    const {values, onSubmit, inputErrors, onChange, error, resetValues} = useAddScreenForm({
+    const {values, onSubmit, inputErrors, onChange, error, resetValues, onWorkingHoursChange} = useAddScreenForm({
         //Enviamos un objeto initialValues para validar si estamos editando o creando una nueva pantalla
         initialValues: {
             name: initialValues?.name || '',
@@ -28,21 +30,23 @@ const AddScreen = ({open, handleClose, action, initialValues}:Props) => {
             pricePerDay: initialValues?.price_per_day || '',
             resolutionWidth: initialValues?.resolution_width || '',
             resolutionHeight: initialValues?.resolution_height || '',
-            type: initialValues?.type || 'indoor'
+            type: initialValues?.type || 'indoor',
+            workingHours: jsonStringToWorkingHours(initialValues?.rules)
         }
     })
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>)=>{
         event.preventDefault()
         onSubmit((values)=>{
-            const {type, resolutionWidth, resolutionHeight, pricePerDay, description, name} = values
+            const {type, resolutionWidth, resolutionHeight, pricePerDay, description, name, workingHours} = values
             action({
                 name,
                 description,
                 price_per_day: pricePerDay,
                 resolution_height: resolutionHeight,
                 resolution_width: resolutionWidth,
-                type
+                type,
+                rules: workingHoursToJsonString(workingHours)
             })
             handleClose()
             
@@ -157,13 +161,19 @@ const AddScreen = ({open, handleClose, action, initialValues}:Props) => {
                         </Select>
                     </FormControl>
 
+                    <div className={styles.workingHoursSection}>
+                        <WorkingHoursSelector
+                            value={values.workingHours}
+                            onChange={onWorkingHoursChange}
+                        />
+                    </div>
+
                 </div>
                 <footer className={styles.btnsContainer}>
                     <Button onClick={handleClose}>Cancelar</Button>
                     <Button
                         variant='contained' 
                         startIcon={initialValues ? <EditIcon/> : <AddIcon/>} 
-                        // onClick={handleOpenAddModal}
                         type='submit'
                     >
                         {initialValues ? 'Editar' : 'Agregar'}

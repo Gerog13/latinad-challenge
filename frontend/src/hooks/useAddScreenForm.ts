@@ -1,7 +1,7 @@
 import { SelectChangeEvent } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 import { Errors } from "types/misc";
-import { ScreenType } from "types/screen";
+import { ScreenType, WorkingHours } from "types/screen";
 
 type FormValues = {
     name: string,
@@ -9,7 +9,8 @@ type FormValues = {
     pricePerDay: string,
     resolutionHeight: string,
     resolutionWidth: string,
-    type: ScreenType
+    type: ScreenType,
+    workingHours: WorkingHours
 }
 
 type Args = {
@@ -43,7 +44,6 @@ export const useAddScreenForm = ({initialValues}:Args)=>{
         }
         
         setError(null)
-
 
         if (!hasErrors) {
             callback(values)
@@ -100,9 +100,17 @@ export const useAddScreenForm = ({initialValues}:Args)=>{
         }));
     };
 
+    //Manejo de cambios en los horarios de funcionamiento
+    const onWorkingHoursChange = (workingHours: WorkingHours) => {
+        setValues((prev) => ({
+            ...prev,
+            workingHours,
+        }));
+    };
 
 
 
 
-    return {values, onChange, onSubmit, inputErrors, error, resetValues}
+
+    return {values, onChange, onSubmit, inputErrors, error, resetValues, onWorkingHoursChange}
 }

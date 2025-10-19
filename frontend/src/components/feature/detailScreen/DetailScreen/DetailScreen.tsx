@@ -11,6 +11,8 @@ import AddScreen from '@components/feature/screens/AddScreenModal/AddScreenModal
 import { toast } from 'sonner';
 import DeleteModal from '../DeleteModal/DeleteModal';
 import { formatARS } from '@lib/utils.number';
+import WorkingHoursDisplay from '@components/common/WorkingHoursDisplay/WorkingHoursDisplay';
+import { jsonStringToWorkingHours } from '@lib/utils.workingHours';
 
 type Props = {
     screen:Screen,
@@ -121,6 +123,8 @@ const DetailScreen = ({screen, setScreen}:Props) => {
                                 <Chip label={formatARS(Number(price_per_day))}/>
                             </div>
                         </div>
+                        
+                        <WorkingHoursDisplay workingHours={jsonStringToWorkingHours(screen.rules)} />
                     </div>
                 </div>
                 <footer className={styles.actionButtonsContainer}>

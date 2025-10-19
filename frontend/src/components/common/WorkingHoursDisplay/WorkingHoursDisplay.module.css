@@ -1,0 +1,57 @@
+.container {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.headerIcon {
+    margin-right: 8px;
+    color: #1976d2;
+}
+
+.title {
+    font-weight: 600;
+    color: #1976d2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.divider {
+    margin-bottom: 12px;
+}
+
+.hoursList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hourChip {
+    font-size: 0.75rem;
+    justify-content: flex-start;
+    width: fit-content;
+}
+
+.noHours {
+    font-style: italic;
+    color: #999;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 12px;
+    }
+    
+    .hoursList {
+        gap: 6px;
+    }
+}

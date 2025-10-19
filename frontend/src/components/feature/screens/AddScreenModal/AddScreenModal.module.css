@@ -36,6 +36,10 @@
     gap: 5px;
 }
 
+.workingHoursSection {
+    margin-top: 8px;
+}
+
 @media screen and (min-width: 510px){
     .modal{
         width: 505px !important;
