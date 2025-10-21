@@ -1,13 +1,11 @@
-import LoginView from '@components/views/LoginView/LoginView';
-import PrivateRoute from '@components/feature/auth/PrivateRoute/PrivateRoute';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import HomeView from '@components/views/HomeView/HomeView';
-import DetailScreenView from '@components/views/DetailScreenView/DetailScreenView';
-import Layout from '@components/layout/Layout';
-import ProfileView from '@components/views/ProfileView/ProfileView';
+import LoginView from "@components/views/LoginView/LoginView";
+import PrivateRoute from "@components/feature/auth/PrivateRoute/PrivateRoute";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomeView from "@components/views/HomeView/HomeView";
+import DetailScreenView from "@components/views/DetailScreenView/DetailScreenView";
+import Layout from "@components/layout/Layout";
+import ProfileView from "@components/views/ProfileView/ProfileView";
+import SalesDashboardView from "@components/views/SalesDashboardView/SalesDashboardView";
 
 /*
   Definimos un router con el objeto createBrowserRouter de react-router-dom. 
@@ -16,38 +14,39 @@ import ProfileView from '@components/views/ProfileView/ProfileView';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PrivateRoute/>,
+    element: <PrivateRoute />,
     children: [
       {
         path: "/",
-        element: <Layout/>,
+        element: <Layout />,
         children: [
           {
             path: "/",
-            element: <HomeView/>,
+            element: <HomeView />,
           },
           {
             path: "/screen/:id",
-            element: <DetailScreenView/>
+            element: <DetailScreenView />,
           },
           {
             path: "/profile",
-            element: <ProfileView/>
-          }
-        ]
-      }
-    ]
+            element: <ProfileView />,
+          },
+          {
+            path: "/dashboard",
+            element: <SalesDashboardView />,
+          },
+        ],
+      },
+    ],
   },
   {
     path: "/login",
-    element: <LoginView/>,
-  }
+    element: <LoginView />,
+  },
 ]);
 function Router() {
-
-  return (
-    <RouterProvider router={router}/>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default Router
+export default Router;
