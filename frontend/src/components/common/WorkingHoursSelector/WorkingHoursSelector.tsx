@@ -23,7 +23,14 @@ import {
 
 import styles from "./WorkingHoursSelector.module.css";
 import { TimeRange, WorkingHours } from "types/screen";
-import { addTimeRangeToDay, createEmptyWorkingHours, isValidTimeFormat, isValidTimeRange, removeTimeRangeFromDay, WEEK_DAYS } from "@lib/utils.workingHours";
+import {
+  addTimeRangeToDay,
+  createEmptyWorkingHours,
+  isValidTimeFormat,
+  isValidTimeRange,
+  removeTimeRangeFromDay,
+  WEEK_DAYS,
+} from "@lib/utils.workingHours";
 
 interface WorkingHoursSelectorProps {
   value: WorkingHours;
@@ -64,12 +71,12 @@ const DayTimeRanges: React.FC<DayTimeRangesProps> = ({
       return;
     }
 
-     // Validar que no se solape con rangos existentes
-     const hasOverlap = ranges.some((range) => {
-       const newStart = newStartTime.split(":").map(Number);
-       const newEnd = newEndTime.split(":").map(Number);
-       const existingStart = range.start.split(":").map(Number);
-       const existingEnd = range.end.split(":").map(Number);
+    // Validar que no se solape con rangos existentes
+    const hasOverlap = ranges.some((range) => {
+      const newStart = newStartTime.split(":").map(Number);
+      const newEnd = newEndTime.split(":").map(Number);
+      const existingStart = range.start.split(":").map(Number);
+      const existingEnd = range.end.split(":").map(Number);
 
       const newStartMinutes = newStart[0] * 60 + newStart[1];
       const newEndMinutes = newEnd[0] * 60 + newEnd[1];
@@ -117,21 +124,21 @@ const DayTimeRanges: React.FC<DayTimeRangesProps> = ({
           </IconButton>
         </Box>
 
-         {ranges.length > 0 && (
-           <Box className={styles.rangesContainer}>
-             {ranges.map((range, index) => (
-               <Chip
-                 key={index}
-                 label={`${range.start} - ${range.end}`}
-                 onDelete={() => handleRemoveRange(index)}
-                 deleteIcon={<DeleteIcon />}
-                 color="primary"
-                 variant="outlined"
-                 className={styles.timeChip}
-               />
-             ))}
-           </Box>
-         )}
+        {ranges.length > 0 && (
+          <Box className={styles.rangesContainer}>
+            {ranges.map((range, index) => (
+              <Chip
+                key={index}
+                label={`${range.start} - ${range.end}`}
+                onDelete={() => handleRemoveRange(index)}
+                deleteIcon={<DeleteIcon />}
+                color="primary"
+                variant="outlined"
+                className={styles.timeChip}
+              />
+            ))}
+          </Box>
+        )}
 
         <Collapse in={isExpanded}>
           <Box className={styles.addRangeContainer}>
@@ -236,7 +243,7 @@ const WorkingHoursSelector: React.FC<WorkingHoursSelectorProps> = ({
               key={day.key}
               dayKey={day.key}
               dayLabel={day.label}
-               ranges={workingHours[day.key] || []}
+              ranges={workingHours[day.key] || []}
               onAddRange={handleAddRange}
               onRemoveRange={handleRemoveRange}
             />
