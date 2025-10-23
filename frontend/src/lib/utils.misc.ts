@@ -1,5 +1,6 @@
 import TvIcon from "@mui/icons-material/Tv";
 import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
+import MapIcon from "@mui/icons-material/Map";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import InsertPhotoOutlinedIcon from "@mui/icons-material/InsertPhotoOutlined";
@@ -16,6 +17,11 @@ export const navLinks = [
       path: "/dashboard",
       name: "Ventas",
       icon: AssessmentOutlinedIcon,
+    },
+    {
+      path: "/map",
+      name: "Mapa",
+      icon: MapIcon,
     },
     {
       path: "/report",
