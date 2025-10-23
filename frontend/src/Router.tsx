@@ -6,6 +6,7 @@ import DetailScreenView from "@components/views/DetailScreenView/DetailScreenVie
 import Layout from "@components/layout/Layout";
 import ProfileView from "@components/views/ProfileView/ProfileView";
 import SalesDashboardView from "@components/views/SalesDashboardView/SalesDashboardView";
+import InteractiveMapView from "@components/views/InteractiveMapView/InteractiveMapView";
 
 /*
   Definimos un router con el objeto createBrowserRouter de react-router-dom. 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
           {
             path: "/dashboard",
             element: <SalesDashboardView />,
+          },
+          {
+            path: "/map",
+            element: <InteractiveMapView />,
           },
         ],
       },

@@ -1,0 +1,303 @@
+.mapContainer {
+  width: 100%;
+  height: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mapHeader {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+  color: white;
+}
+
+.mapTitle {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.mapSubtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+}
+
+.mapWrapper {
+  height: calc(100% - 80px);
+  position: relative;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: #666;
+}
+
+.errorContainer {
+  padding: 20px;
+}
+
+/* Estilos para el tooltip */
+.tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.tooltipContent {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(25, 118, 210, 0.2);
+  min-width: 200px;
+  position: relative;
+}
+
+.tooltipContent::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+}
+
+.tooltipHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tooltipIcon {
+  color: #1976d2;
+  font-size: 1.2rem;
+}
+
+.tooltipTitle {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.tooltipDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tooltipChip {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  height: 20px;
+}
+
+.tooltipPrice {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tooltipPriceIcon {
+  font-size: 0.8rem;
+  color: #4caf50;
+}
+
+.tooltipPriceText {
+  font-weight: 600;
+  color: #4caf50;
+  font-size: 0.75rem;
+}
+
+.tooltipStatus {
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}
+
+/* Estilos para el popup */
+.popup {
+  min-width: 280px;
+}
+
+.popupContent {
+  padding: 0;
+}
+
+.popupHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.screenIcon {
+  margin-right: 8px;
+  color: #1976d2;
+  font-size: 1.2rem;
+}
+
+.screenName {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-size: 0.875rem;
+}
+
+.popupDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.typeChip {
+  align-self: flex-start;
+  font-size: 0.75rem;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.priceIcon {
+  font-size: 1rem;
+  color: #4caf50;
+}
+
+.price {
+  font-weight: 600;
+  color: #4caf50;
+  font-size: 0.875rem;
+}
+
+.resolutionContainer {
+  margin-top: 4px;
+}
+
+.resolution {
+  color: #666;
+  font-size: 0.8rem;
+  font-family: "Courier New", monospace;
+}
+
+.workingHoursContainer {
+  margin-bottom: 12px;
+  padding: 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.workingHoursTitle {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+}
+
+.workingHour {
+  display: block;
+  color: #666;
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+}
+
+.moreHours {
+  color: #1976d2;
+  font-style: italic;
+  font-size: 0.75rem;
+}
+
+.locationContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding: 4px 0;
+}
+
+.locationIcon {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.address {
+  color: #666;
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.viewDetailsButton {
+  width: 100%;
+  font-size: 0.8rem;
+  text-transform: none;
+  font-weight: 600;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .mapContainer {
+    height: 500px;
+  }
+
+  .mapHeader {
+    padding: 12px 16px;
+  }
+
+  .mapTitle {
+    font-size: 1.25rem;
+  }
+
+  .popup {
+    min-width: 240px;
+  }
+
+  .popupContent {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapContainer {
+    height: 400px;
+  }
+
+  .mapHeader {
+    padding: 8px 12px;
+  }
+
+  .mapTitle {
+    font-size: 1.1rem;
+  }
+
+  .mapSubtitle {
+    font-size: 0.8rem;
+  }
+}
